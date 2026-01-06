@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Frontend Connected</title>
+</head>
+<body>
+  <h2>Frontend Page</h2>
+  <button onclick="callBackend()">Call Backend</button>
+  <p id="output"></p>
+
+  <script>
+    function callBackend() {
+      fetch("http://localhost:5000/api/data")
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("output").innerHTML = data.message;
+        })
+        .catch(err => console.error(err));
+    }
+  </script>
+</body>
+</html>
